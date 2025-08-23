@@ -1,0 +1,33 @@
+:root {
+  --font: Roboto, sans-serif;
+  --color-accent: #a18a68;
+  --color-black: #000000;
+  --color-black-hover: #222222;
+  --color-grey: #d8d8d8;
+  --color-dark-grey: #707070;
+  --color-white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  text-rendering: optimizeLegibility;
+  -webkit-text-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale;
+}
+
+#__nuxt {
+  margin-top: 38px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
