@@ -27,7 +27,7 @@ const errorMessageText = {
 }
 
 .error__message {
-  color: var(--color-dark-grey);
+  color: var(--color-grey-dark);
   text-align: center;
   font-size: 20px;
   font-weight: 400;
