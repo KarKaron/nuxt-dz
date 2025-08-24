@@ -23,11 +23,11 @@ const { color = "primary" } = defineProps<{
 .primary {
   background: var(--color-black);
   color: var(--color-white);
-}
 
-.primary:hover {
-  background: var(--color-black-hover);
-  color: var(--color-white);
+  &:hover {
+    background: var(--color-black-hover);
+    color: var(--color-white);
+  }
 }
 
 .secondary {

@@ -1,10 +1,11 @@
 :root {
-  --font: Roboto, sans-serif;
+  --font: "Roboto", sans-serif;
   --color-accent: #a18a68;
-  --color-black: #000000;
-  --color-black-hover: #222222;
-  --color-grey: #d8d8d8;
-  --color-dark-grey: #707070;
+  --color-black: #191919;
+  --color-black-hover: #292929;
+  --color-grey: #757575;
+  --color-grey-dark: #707070;
+  --color-grey-light: #e6e6e6;
   --color-white: #ffffff;
 }
 
@@ -19,8 +20,7 @@
 body {
   font-family: var(--font);
   text-rendering: optimizeLegibility;
-  -webkit-text-smoothing: antialiased;
-  -moz-osx-font-smoothing: greyscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 #__nuxt {
@@ -30,4 +30,8 @@ body {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

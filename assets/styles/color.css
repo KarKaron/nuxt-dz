@@ -1,0 +1,13 @@
+.color {
+  &-black {
+    color: var(--color-black);
+  }
+
+  &-dark {
+    color: var(--color-black-hover);
+  }
+
+  &-grey {
+    color: var(--color-grey);
+  }
+}
