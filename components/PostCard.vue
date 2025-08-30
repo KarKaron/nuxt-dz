@@ -26,9 +26,7 @@
 <script setup lang="ts">
   import type { IPost } from '~/common.types';
 
-  const { post } = defineProps<{
-    post: IPost
-  }>()
+  const post = defineProps<IPost>()
 </script>
 
 <style scoped>

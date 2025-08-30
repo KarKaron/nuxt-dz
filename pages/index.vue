@@ -3,7 +3,7 @@
     post-card(
       v-for="post in posts.posts"
       :key="post.id"
-      :post="post"
+      v-bind="post"
     )
 </template>
 
