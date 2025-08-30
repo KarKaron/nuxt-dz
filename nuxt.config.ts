@@ -2,13 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  icon: {
-    customCollections: [
-      {
-        prefix: "icons",
-        dir: "./assets/icons"
-      }
-    ]
+  runtimeConfig: {
+    token: "",
+    public: {
+      apiUrl: process.env.NUXT_PUBLIC_URL
+    }
+  },
+  postcss: {
+    plugins: {
+      "postcss-nested": {}
+    }
   },
   app: {
     pageTransition: {
@@ -16,10 +19,13 @@ export default defineNuxtConfig({
       mode: "out-in"
     }
   },
-  postcss: {
-    plugins: {
-      "postcss-nested": {}
-    }
+  icon: {
+    customCollections: [
+      {
+        prefix: "icons",
+        dir: "./assets/icons"
+      }
+    ]
   },
   modules: [
     "@nuxt/eslint",
