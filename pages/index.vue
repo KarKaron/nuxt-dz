@@ -1,3 +1,23 @@
 <template lang="pug">
-  h1 Index
+  div
+    post-card(
+      v-for="post in posts.posts"
+      :key="post.id"
+      :post="post"
+    )
 </template>
+
+<script setup lang="ts">
+import type { IGetPostsResponse } from "~/common.types";
+
+const { data: posts } = await useFetch<IGetPostsResponse>(
+  useRuntimeConfig().public.apiUrl + "/posts",
+  {
+    query: {
+      page: 1,
+      page_size: 10,
+      sort: "date"
+    }
+  }
+);
+</script>

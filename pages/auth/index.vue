@@ -1,3 +1,4 @@
 <template lang="pug">
-  h1 Enter
+  div
+    h1 Enter
 </template>

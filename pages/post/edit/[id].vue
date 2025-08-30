@@ -1,3 +1,4 @@
 <template lang="pug">
-  h1 Add Post
+  div
+    h1 Edit Post
 </template>
