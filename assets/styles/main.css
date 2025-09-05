@@ -4,6 +4,7 @@
   --color-black: #191919;
   --color-black-hover: #292929;
   --color-grey: #757575;
+  --color-grey-alpha: #808080;
   --color-grey-dark: #707070;
   --color-grey-light: #e6e6e6;
   --color-white: #ffffff;
@@ -30,8 +31,18 @@ body {
 .icon {
   width: 24px;
   height: 24px;
+
+  &-dislike {
+    transform: scaleX(-1) rotate(180deg);
+  }
 }
 
-.cursor-pointer {
-  cursor: pointer;
+.cursor {
+  &-pointer {
+    cursor: pointer;
+  }
+
+  &-default {
+    cursor: default;
+  }  
 }
