@@ -11,20 +11,32 @@
       .post__card-footer-likes
         .cursor-pointer
           .color-dark {{ post.likes }}
-          icon.icon( name="icons:like" )
+          icon.icon(
+            :name="store.checkActive(post.id, ELike.like) ? 'icons:like-filled' : 'icons:like'"
+            :class="{ 'cursor-default': store.checkActive(post.id, ELike.like) }"
+            @click.stop.prevent="!store.checkActive(post.id, ELike.like) && store.addToLiked(post.id, ELike.like)"
+          )
         .cursor-pointer
           .color-dark {{ post.dislikes }}
-          icon.icon( name="icons:dis-like" )
+          icon.icon(
+            :name="store.checkActive(post.id, ELike.dislike) ? 'icons:like-filled' : 'icons:dislike'"
+            :class="{ 'icon-dislike': store.checkActive(post.id, ELike.dislike) }"
+            @click.stop.prevent="!store.checkActive(post.id, ELike.dislike) && store.addToLiked(post.id, ELike.dislike)"
+          )
 </template>
 
 <script setup lang="ts">
-import type { IGetPostByIdResponse } from "~/common.types";
+import { ELike, type IGetPostByIdResponse } from "~/common.types";
+
+const router = useRoute();
+const API_URL = useAPI();
+const store = useLikedStore();
 
 const { data: post } = await useFetch<IGetPostByIdResponse>(
-  useRuntimeConfig().public.apiUrl + `/posts/${useRoute().params.id}`
+  `${API_URL.GET_POSTS}/${router.params.id}`
 );
 </script>
 
 <style scoped>
-@import url('../../assets/styles/card.css');
+@import url("../../assets/styles/card.css");
 </style>
