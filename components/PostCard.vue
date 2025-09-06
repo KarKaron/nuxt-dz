@@ -26,13 +26,14 @@
             )
         .post__card-footer-edit
           icon.icon.cursor-pointer( name="icons:arhive" )
-          .cursor-pointer
+          nuxt-link( :to="`/post/edit/${post.id}`" )
             icon.icon( name="icons:pencil" )
             .color-dark Изменить
 </template>
 
 <script setup lang="ts">
-import { ELike, type IPost } from "~/common.types";
+import { ELike } from "~/common.enum";
+import type { IPost } from "~/common.types";
 
 const store = useLikedStore();
 
@@ -54,7 +55,7 @@ a {
     align-items: center;
     gap: 20px;
 
-    .cursor-pointer {
+    a {
       display: flex;
       align-items: center;
       gap: 6px;

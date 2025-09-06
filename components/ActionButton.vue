@@ -1,23 +1,32 @@
 <template lang="pug">
-  button.button( :class="color" )
+  button.button(
+    :class="color"
+    :disabled="isDisabled"
+  )
     slot
 </template>
 
 <script setup lang="ts">
-const { color = "primary" } = defineProps<{
+const { color = "primary", isDisabled = false } = defineProps<{
   color?: "primary" | "secondary";
+  isDisabled: boolean;
 }>();
 </script>
 
 <style scoped>
 .button {
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid var(--color-black);
   cursor: pointer;
-  padding: 16px;
+  padding: 12px;
   font-family: var(--font);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 .primary {

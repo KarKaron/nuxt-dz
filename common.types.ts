@@ -1,3 +1,14 @@
+export interface IUser {
+  id: number;
+  email: string;
+  created_at: string;
+}
+
+export interface IAuthResponce {
+  token: string
+  user: IUser
+}
+
 export interface IPost {
   id: number
   title: string
@@ -20,14 +31,4 @@ export interface IGetPostsResponse {
 
 export interface IGetPostByIdResponse {
   post: IPost
-}
-
-export const enum ESort {
-  "date" = "date",
-  "rating" = "rating"
-}
-
-export const enum ELike {
-  like = "like",
-  dislike = "dislike"
 }
