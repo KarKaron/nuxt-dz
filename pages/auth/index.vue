@@ -28,6 +28,7 @@ definePageMeta({
 });
 
 const API_URL = useAPI();
+const store = useAuthStore();
 
 const login = ref("");
 const password = ref("");
@@ -40,7 +41,8 @@ async function loginHandler() {
       password: password.value
     }
   });
-  useAuthStore().setToken(data.token);
+  store.setToken(data.token);
+  store.setUser(data.user);
   useRouter().replace("/");
 }
 </script>
