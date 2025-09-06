@@ -2,7 +2,7 @@
   aside.sidebar
     nuxt-link( to="/" )
       icon.icon( name="icons:home" )
-    .cursor-pointer
+    nuxt-link( to="/auth" )
       icon.icon(
         name="icons:exit"
         @click="useAuthStore().clearToken"
