@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { ELike, type IPost } from "~/common.types";
+import { ELike } from "~/common.enum";
+import type { IPost } from "~/common.types";
 
 interface ILiked {
   id: IPost["id"];

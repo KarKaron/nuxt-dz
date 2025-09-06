@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ESort } from "~/common.types";
+import { ESort } from "~/common.enum";
 
 const SORT_DATA = [
   {

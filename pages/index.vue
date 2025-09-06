@@ -17,7 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { ESort, type IGetPostsResponse } from "~/common.types";
+import { ESort } from "~/common.enum";
+import type { IGetPostsResponse } from "~/common.types";
 
 const route = useRoute();
 const router = useRouter();

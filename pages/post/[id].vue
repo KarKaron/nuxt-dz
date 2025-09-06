@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ELike, type IGetPostByIdResponse } from "~/common.types";
+import { ELike } from "~/common.enum";
+import type { IGetPostByIdResponse } from "~/common.types";
 
 const router = useRoute();
 const API_URL = useAPI();
