@@ -27,6 +27,11 @@ definePageMeta({
   layout: "auth"
 });
 
+useSeoMeta({
+  title: "Войти в аккаунт",
+  description: "Войти в аккаунт",
+})
+
 const API_URL = useAPI();
 const store = useAuthStore();
 

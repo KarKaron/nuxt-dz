@@ -14,6 +14,12 @@ export default defineNuxtConfig({
     }
   },
   app: {
+    head: {
+      titleTemplate: "%s | VoteApp",
+      htmlAttrs: {
+        lang: "ru"
+      }
+    },
     pageTransition: {
       name: "page",
       mode: "out-in"
@@ -26,6 +32,9 @@ export default defineNuxtConfig({
         dir: "./assets/icons"
       }
     ]
+  },
+  routeRules: {
+    "./posts": { prerender: true }
   },
   modules: [
     "@nuxt/eslint",
