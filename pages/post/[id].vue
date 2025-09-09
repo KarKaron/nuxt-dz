@@ -33,9 +33,14 @@ const router = useRoute();
 const API_URL = useAPI();
 const store = useLikedStore();
 
-const { data: post } = await useFetch<IGetPostByIdResponse>(
+const { data: post } = await useFetch<IGetPostByIdResponse['post']>(
   `${API_URL.GET_POSTS}/${router.params.id}`
 );
+
+useSeoMeta({
+  title: post.value?.title,
+  description: post.value?.content.slice(0, 255),
+})
 </script>
 
 <style scoped>

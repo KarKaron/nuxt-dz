@@ -20,6 +20,11 @@
 import { ESort } from "~/common.enum";
 import type { IGetPostsResponse } from "~/common.types";
 
+useSeoMeta({
+  title: "Список постов",
+  description: "Список постов",
+})
+
 const route = useRoute();
 const router = useRouter();
 const API_URL = useAPI();
