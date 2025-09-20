@@ -26,7 +26,7 @@ const input = defineModel<string>();
   color: var(--color-black);
 
   &::placeholder {
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--color-black-light);
   }
 
   &__wrapper {

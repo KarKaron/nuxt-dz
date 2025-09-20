@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const { color = "primary", isDisabled = false } = defineProps<{
   color?: "primary" | "secondary";
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }>();
 </script>
 

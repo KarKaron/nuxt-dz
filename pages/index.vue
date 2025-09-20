@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    add-post
     sorting(
       :sort="sort"
       @change-sort="sort = $event"
@@ -8,6 +9,7 @@
       v-for="post in posts.posts"
       :key="post.id"
       v-bind="post"
+      @delete="refreshPosts"
     )
     paginator(
       :page="+page"
@@ -44,6 +46,15 @@ const { data: posts } = await useFetch<IGetPostsResponse>(API_URL.GET_POSTS, {
   key: "get-posts",
   query
 });
+
+async function refreshPosts() {
+  try {
+    posts.value = await $fetch(API_URL.GET_POSTS);
+
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const pages = computed(() => Math.ceil(+posts.value!.total / LIMIT));
 

@@ -13,20 +13,24 @@
           .cursor-pointer
             .color-dark {{ post.likes }}
             icon.icon(
-              :name="store.checkActive(post.id, ELike.like) ? 'icons:like-filled' : 'icons:like'"
-              :class="{ 'cursor-default': store.checkActive(post.id, ELike.like) }"
-              @click.stop.prevent="!store.checkActive(post.id, ELike.like) && store.addToLiked(post.id, ELike.like)"
+              :name="likeStore.checkActive(post.id, ELike.like) ? 'icons:like-filled' : 'icons:like'"
+              :class="{ 'cursor-default': likeStore.checkActive(post.id, ELike.like) }"
+              @click.stop.prevent="!likeStore.checkActive(post.id, ELike.like) && likeStore.addToLiked(post.id, ELike.like)"
             )
           .cursor-pointer
             .color-dark {{ post.dislikes }}
             icon.icon(
-              :name="store.checkActive(post.id, ELike.dislike) ? 'icons:like-filled' : 'icons:dislike'"
-              :class="{ 'icon-dislike cursor-default': store.checkActive(post.id, ELike.dislike) }"
-              @click.stop.prevent="!store.checkActive(post.id, ELike.dislike) && store.addToLiked(post.id, ELike.dislike)"
+              :name="likeStore.checkActive(post.id, ELike.dislike) ? 'icons:like-filled' : 'icons:dislike'"
+              :class="{ 'icon-dislike cursor-default': likeStore.checkActive(post.id, ELike.dislike) }"
+              @click.stop.prevent="!likeStore.checkActive(post.id, ELike.dislike) && likeStore.addToLiked(post.id, ELike.dislike)"
             )
         .post__card-footer-edit
-          icon.icon.cursor-pointer( name="icons:arhive" )
-          nuxt-link( :to="`/post/edit/${post.id}`" )
+          icon.icon(
+            name="icons:arhive"
+            :class="{ 'cursor-default': !authStore.token }"
+            @click.stop.prevent="authStore.token && deletePost(post.id)"
+          )
+          nuxt-link( :to="`/post/edit/${post.id}`" click.stop.prevent)
             icon.icon( name="icons:pencil" )
             .color-dark Изменить
 </template>
@@ -35,9 +39,27 @@
 import { ELike } from "~/common.enum";
 import type { IPost } from "~/common.types";
 
-const store = useLikedStore();
+type IPostId = IPost["id"];
+
+const authStore = useAuthStore();
+const likeStore = useLikedStore();
 
 const post = defineProps<IPost>();
+
+const emit = defineEmits<(e: "delete", value: IPostId) => void>();
+
+async function deletePost(id: IPostId) {
+  try {
+    await $fetch(`${useAPI().GET_POSTS}/${id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${authStore.token}` }
+    });
+
+    emit("delete", id);
+  } catch (error) {
+    console.log(error);
+  }
+}
 </script>
 
 <style scoped>
