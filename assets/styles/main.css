@@ -3,6 +3,7 @@
   --color-accent: #a18a68;
   --color-black: #191919;
   --color-black-hover: #292929;
+  --color-black-light: rgba(0, 0, 0, 0.8);
   --color-grey: #757575;
   --color-grey-alpha: #808080;
   --color-grey-dark: #707070;
@@ -45,5 +46,5 @@ body {
 
   &-default {
     cursor: default;
-  }  
+  }
 }

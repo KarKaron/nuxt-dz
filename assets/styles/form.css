@@ -1,0 +1,21 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+
+  :deep() {
+    .input {
+      padding: 0;
+      border: none;
+      margin-bottom: 28px;
+      border-radius: 0;
+    }
+
+    .button {
+      margin: 28px auto;
+      padding: 12px 25px;
+    }
+  }
+}
